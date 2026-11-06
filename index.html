@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orienta | No transites la facultad en soledad - UAI Comercialización</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#111827',
+                            border: '#1F2937',
+                            accent: '#6366F1', // Indigo
+                            violet: '#8B5CF6', // Violet
+                            emerald: '#10B981', // Emerald
+                            hover: '#4F46E5'
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(99, 102, 241, 0.3)',
+                        'glow-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Gradient Animation for CTA */
+        .btn-gradient {
+            background: linear-gradient(90deg, #6366F1, #8B5CF6, #6366F1);
+            background-size: 200% auto;
+            transition: 0.4s;
+        }
+        .btn-gradient:hover {
+            background-position: right center;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark bg-grid antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-gray-800/80 px-4 lg:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo & Badge -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-bold text-xl shadow-glow group-hover:scale-105 transition-transform">
+                    <i class="fa-solid font-black">O</i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                        Orienta
+                        <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Piloto UAI</span>
+                    </span>
+                    <span class="text-xs text-gray-400 hidden sm:inline">Comercialización</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#como-funciona" class="hover:text-white transition-colors">¿Cómo funciona?</a>
+                <a href="#beneficios" class="hover:text-white transition-colors">Beneficios</a>
+                <a href="#experiencias" class="hover:text-white transition-colors">La Posta</a>
+                <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
+            </nav>
+
+            <!-- CTA Button Header -->
+            <div class="flex items-center gap-3">
+                <a href="#registro" class="btn-gradient text-white font-medium text-sm px-5 py-2.5 rounded-xl shadow-glow hover:shadow-indigo-500/25 transition-all flex items-center gap-2">
+                    <span>Unirme gratis</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 lg:pt-32">
+        <!-- Hero Section -->
+        <section class="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-8 pb-16 lg:py-20 text-center">
+            <!-- Background Glow Effects -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/3 w-64 h-64 bg-violet-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Social Proof Badge Header -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-800/80 border border-gray-700 text-xs text-gray-300 mb-8 backdrop-blur-md">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="font-medium">Comunidad activa de Comercialización UAI</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight">
+                No transites la facultad <br class="hidden sm:inline" />
+                <span class="gradient-text">en soledad.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
+                Encontrá experiencias reales de tus materias, resolvé tus dudas al instante y conéctate con estudiantes de la UAI que ya pasaron por lo mismo. Sin vueltas ni discursos acartonados.
+            </p>
+
+            <!-- Dual CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#registro" class="w-full sm:w-auto btn-gradient text-white font-semibold text-base px-8 py-4 rounded-xl shadow-glow hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-rocket text-indigo-200"></i>
+                    <span>Sumate a la prueba piloto</span>
+                </a>
+                <a href="#demo-interactiva" class="w-full sm:w-auto glass-card hover:bg-gray-800/60 text-gray-200 font-medium text-base px-8 py-4 rounded-xl border border-gray-700/80 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-play text-indigo-400 text-xs"></i>
+                    <span>Ver cómo funciona</span>
+                </a>
+            </div>
+
+            <!-- Hero Metrics / Badges -->
+            <div class="pt-8 border-t border-gray-800/80 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-2xl font-bold text-white mb-1">100%</div>
+                    <div class="text-xs text-gray-400">Entre pares de la UAI</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-2xl font-bold text-indigo-400 mb-1">Cero</div>
+                    <div class="text-xs text-gray-400">Filtro o burocracia</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-2xl font-bold text-violet-400 mb-1">1.º y 2.º</div>
+                    <div class="text-xs text-gray-400">Año de Comercialización</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-2xl font-bold text-emerald-400 mb-1">Gratis</div>
+                    <div class="text-xs text-gray-400">Acceso exclusivo a la beta</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem vs Solution Grid Section -->
+        <section id="como-funciona" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">La cruda realidad vs. Orienta</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">¿Te suena familiar arrancar el cuatrimestre a ciegas?</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- The Old Way / Problem -->
+                <div class="glass-card p-8 rounded-2xl border-red-900/30 relative overflow-hidden bg-gradient-to-b from-red-950/10 to-transparent">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-200">El método tradicional (Solo y a ciegas)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-exclamation text-red-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Incertidumbre total:</strong> Armás tu horario sin saber la carga real de lecturas ni el estilo de evaluación.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-exclamation text-red-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Falta de data real:</strong> Te enterás de cómo toma el final el profesor recién la semana previa al examen.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-exclamation text-red-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Respuestas acartonadas:</strong> La facultad te da el programa institucional, pero nadie te explica la posta día a día.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-exclamation text-red-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Aislamiento:</strong> Te cuesta cruzar palabra o armar grupo si recién arrancás el primer año.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- The Orienta Way / Solution -->
+                <div class="glass-card p-8 rounded-2xl border-emerald-500/30 relative overflow-hidden bg-gradient-to-b from-emerald-950/20 to-transparent shadow-glow-emerald">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Con Orienta (De estudiante a estudiante)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-200 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Roadmap claro:</strong> Sabés exactamente qué esperar de Comercialización I, Administración y Marketing.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Reseñas honestas:</strong> Leés experiencias de quienes rindieron la materia el cuatrimestre pasado.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Contacto directo:</strong> Preguntale dudas puntuales a compañeros de años superiores.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>Comunidad real:</strong> Transitás la carrera acompañado, compartiendo resúmenes y tips clave.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="beneficios" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-violet-400 uppercase mb-3">Pensado para vos</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Todo lo que necesitás para salvar la cursada</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Experiencias Reales</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        La posta sobre las materias, profesores y la carga horaria verdadera, contada sin filtro por quienes ya la cursaron.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Conexión Directa</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Chateá y sacate las dudas puntuales con estudiantes avanzados de Comercialización sin pasar por grupos de WhatsApp caóticos.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Armador de Cursada</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Organizá tu cuatrimestre de forma inteligente, equilibrando la dificultad de las materias para no colapsar en parciales.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo / Experience Preview Section -->
+        <section id="demo-interactiva" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-indigo-500/20 relative overflow-hidden">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5">
+                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-2">Prototipo en vivo</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Así se ven las experiencias en Orienta</h2>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                            Mirá un adelanto de cómo los chicos de Comercialización UAI comparten los datos claves de cada materia. Hace clic en las pestañas para probar la interfaz.
+                        </p>
+                        <div class="space-y-3">
+                            <button onclick="switchTab('comercializacion')" id="btn-comercializacion" class="w-full text-left px-4 py-3 rounded-xl bg-indigo-600/30 border border-indigo-500/50 text-white font-medium text-sm flex items-center justify-between transition-all">
+                                <span>Comercialización I</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-indigo-300"></i>
+                            </button>
+                            <button onclick="switchTab('matematica')" id="btn-matematica" class="w-full text-left px-4 py-3 rounded-xl bg-gray-800/40 border border-gray-700/60 text-gray-300 hover:bg-gray-800 font-medium text-sm flex items-center justify-between transition-all">
+                                <span>Administración General</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
+                            </button>
+                            <button onclick="switchTab('investigacion')" id="btn-investigacion" class="w-full text-left px-4 py-3 rounded-xl bg-gray-800/40 border border-gray-700/60 text-gray-300 hover:bg-gray-800 font-medium text-sm flex items-center justify-between transition-all">
+                                <span>Investigación de Mercado</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- App Mockup UI Preview -->
+                    <div class="lg:col-span-7 bg-gray-950 p-5 sm:p-6 rounded-2xl border border-gray-800 shadow-2xl">
+                        <div id="tab-content">
+                            <!-- Default Content: Comercialización I -->
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                                    <div>
+                                        <h4 class="text-white font-bold text-lg">Comercialización I</h4>
+                                        <span class="text-xs text-gray-400">1.º Año | Comercialización UAI</span>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">
+                                        Recomendada para 1.º cuatri
+                                    </span>
+                                </div>
+                                <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-violet-600/30 text-violet-300 flex items-center justify-center font-bold text-xs">
+                                            S
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-semibold text-gray-200">Sofía M. <span class="text-gray-500 font-normal">• Cursó el cuatri pasado</span></p>
+                                            <div class="flex text-amber-400 text-xs">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 text-xs leading-relaxed">
+                                        "La clave acá es llevar al día el trabajo práctico integrador. Los parciales teóricos no son imposibles si estudiaste de las diapositivas de clase. ¡Aprovechen los espacios de consulta de las últimas 2 semanas!"
+                                    </p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                                        <span class="text-gray-400 block mb-1">Carga de lectura</span>
+                                        <span class="text-white font-medium">Moderada (3-4 hs/semana)</span>
+                                    </div>
+                                    <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                                        <span class="text-gray-400 block mb-1">Modalidad examen</span>
+                                        <span class="text-white font-medium">Teórico + Caso Práctico</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials / Community Vibe -->
+        <section id="experiencias" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-3">Voz de la comunidad</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Lo que comentan entre pasillos</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                        "En mi primer cuatrimestre en la UAI estaba totalmente desorientado con las correlativas. Orienta me sirvió para entender qué materia conviene priorizar para no trabarme después."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-500 to-emerald-400 flex items-center justify-center font-bold text-white text-xs">
+                            LN
+                        </div>
+                        <div>
+                            <p class="text-white text-xs font-bold">Lucas N.</p>
+                            <p class="text-gray-400 text-xs">Estudiante de 1.º año - Comercialización</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                        "Saber de antemano la metodología de los parciales en Administración me salvó. Pasás de la incertidumbre total a encarar la materia con seguridad."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-violet-500 to-indigo-500 flex items-center justify-center font-bold text-white text-xs">
+                            MP
+                        </div>
+                        <div>
+                            <p class="text-white text-xs font-bold">Matias P.</p>
+                            <p class="text-gray-400 text-xs">Estudiante de 2.º año - Comercialización</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                        "Lo mejor es que te responden al toque y sin palabras raras. Es comunicación posta de estudiante a estudiante, como si le preguntaras a un amigo."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-white text-xs">
+                            C
+                        </div>
+                        <div>
+                            <p class="text-white text-xs font-bold">Camila G.</p>
+                            <p class="text-gray-400 text-xs">Estudiante de 2.º año - Comercialización</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sign-up / Waitlist Lead Capture Form -->
+        <section id="registro" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-indigo-500/30 relative overflow-hidden bg-gradient-to-b from-indigo-950/20 via-gray-900 to-gray-950 shadow-glow">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-semibold border border-indigo-500/20 inline-block mb-4">
+                        Cupos limitados para la prueba piloto
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Asegurá tu lugar en Orienta</h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        Sumate a la versión prueba piloto exclusiva para la carrera de Comercialización en la UAI. Formá parte de la primera camada que va a transformar la facultad.
+                    </p>
+                </div>
+
+                <!-- Interactive Form -->
+                <form id="signup-form" onsubmit="handleFormSubmit(event)" class="space-y-5 max-w-lg mx-auto">
+                    <div>
+                        <label for="nombre" class="block text-xs font-medium text-gray-300 mb-1.5">Nombre completo</label>
+                        <input type="text" id="nombre" required placeholder="Ej: Valentina López" class="w-full bg-gray-900/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-xs font-medium text-gray-300 mb-1.5">Email institucional / universitario</label>
+                        <input type="email" id="email" required placeholder="tuusuario@alumnos.uai.edu.ar o mail personal" class="w-full bg-gray-900/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
+                    </div>
+
+                    <div>
+                        <label for="anio" class="block text-xs font-medium text-gray-300 mb-1.5">Año que estás cursando</label>
+                        <select id="anio" required class="w-full bg-gray-900/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+                            <option value="" disabled selected>Seleccioná tu año</option>
+                            <option value="1">1.º Año (Ingresante)</option>
+                            <option value="2">2.º Año</option>
+                            <option value="otro">Avanzado (3.º o 4.º año)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full btn-gradient text-white font-bold py-3.5 px-6 rounded-xl shadow-glow hover:scale-[1.01] transition-all flex items-center justify-center gap-2 mt-2">
+                        <span>Sumarme a la prueba piloto</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+
+                    <p class="text-[11px] text-gray-400 text-center mt-3">
+                        <i class="fa-solid fa-lock text-indigo-400 mr-1"></i> Respetamos tu privacidad. Cero spam, solo comunidad real.
+                    </p>
+                </form>
+
+                <!-- Success Confirmation State (Hidden initially) -->
+                <div id="success-state" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/40">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">¡Genial! Ya estás en la lista</h3>
+                    <p class="text-gray-300 text-sm max-w-md mx-auto">
+                        Te enviamos los datos de acceso para la prueba piloto de Comercialización UAI a tu casilla de correo. ¡Bienvenido/a a Orienta!
+                    </p>
+                    <button onclick="resetForm()" class="text-xs text-indigo-400 hover:text-indigo-300 underline pt-2">
+                        Registrar a otro compañero
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="text-center mb-14">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Sin vueltas</h2>
+                <p class="text-3xl font-bold text-white">Preguntas frecuentes</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
+                        <span>¿Es gratis unirme a la prueba piloto?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-1" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
+                        Sí, 100% gratuito. Orienta nace de estudiantes para estudiantes para solucionar la desorientación en los primeros años de la facultad.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
+                        <span>¿Es una plataforma oficial de la UAI?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-2" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
+                        No, es un proyecto independiente creado por alumnos. Nos comunicamos de igual a igual, sin rodeos burocráticos ni discursos institucionales acartonados.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
+                        <span>¿Por qué arrancan solo con Comercialización?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-3" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
+                        Elegimos Comercialización para la prueba piloto para asegurar que la calidad del contenido y las respuestas entre pares sea excelente desde el día uno antes de expandirnos.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800/80 bg-gray-950 py-12 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
+                    O
+                </div>
+                <span class="text-white font-bold tracking-tight">Orienta</span>
+                <span class="text-xs text-gray-500">| Hecho por y para estudiantes de la UAI</span>
+            </div>
+
+            <p class="text-xs text-gray-400">
+                &copy; 2026 Orienta. Prueba piloto en desarrollo.
+            </p>
+
+            <div class="flex gap-6 text-gray-400 text-xs">
+                <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-white transition-colors">Términos</a>
+                <a href="#registro" class="hover:text-indigo-400 transition-colors">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Scripts -->
+    <script>
+        // Tab Switcher for Prototype Demo
+        const tabData = {
+            comercializacion: {
+                title: "Comercialización I",
+                badge: "Recomendada para 1.º cuatri",
+                author: "Sofía M. • Cursó el cuatri pasado",
+                quote: "La clave acá es llevar al día el trabajo práctico integrador. Los parciales teóricos no son imposibles si estudiaste de las diapositivas de clase. ¡Aprovechen los espacios de consulta de las últimas 2 semanas!",
+                read: "Moderada (3-4 hs/semana)",
+                exam: "Teórico + Caso Práctico"
+            },
+            matematica: {
+                title: "Administración General",
+                badge: "Materia Base Clave",
+                author: "Marcos T. • Cursó en 2025",
+                quote: "Lean los casos prácticos antes de la clase. El final entra mucho de pensamiento estratégico. No se queden solo con los resúmenes viejos porque cambian las preguntas.",
+                read: "Intensa (5 hs/semana)",
+                exam: "Opción Múltiple + Desarrollo"
+            },
+            investigacion: {
+                title: "Investigación de Mercado",
+                badge: "Atención al TPA",
+                author: "Gonzalo R. • Estudiante de 3.º año",
+                quote: "Armen un buen grupo desde la semana 2. El análisis estadístico requiere tiempo pero los profes explican de diez si preguntás en clase. Súper útil para la carrera.",
+                read: "Moderada - Práctica",
+                exam: "Entrega de Proyecto + Final"
+            }
+        };
+
+        function switchTab(key) {
+            // Update active buttons styling
+            ['comercializacion', 'matematica', 'investigacion'].forEach(k => {
+                const btn = document.getElementById(btn-${k});
+                if (k === key) {
+                    btn.className = "w-full text-left px-4 py-3 rounded-xl bg-indigo-600/30 border border-indigo-500/50 text-white font-medium text-sm flex items-center justify-between transition-all";
+                    btn.querySelector('i').className = "fa-solid fa-chevron-right text-xs text-indigo-300";
+                } else {
+                    btn.className = "w-full text-left px-4 py-3 rounded-xl bg-gray-800/40 border border-gray-700/60 text-gray-300 hover:bg-gray-800 font-medium text-sm flex items-center justify-between transition-all";
+                    btn.querySelector('i').className = "fa-solid fa-chevron-right text-xs text-gray-500";
+                }
+            });
+
+            // Update mockup content
+            const data = tabData[key];
+            const contentDiv = document.getElementById('tab-content');
+            contentDiv.innerHTML = `
+                <div class="space-y-4 animate-fadeIn">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                        <div>
+                            <h4 class="text-white font-bold text-lg">${data.title}</h4>
+                            <span class="text-xs text-gray-400">Comercialización UAI</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">
+                            ${data.badge}
+                        </span>
+                    </div>
+                    <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-violet-600/30 text-violet-300 flex items-center justify-center font-bold text-xs">
+                                ${data.author.charAt(0)}
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-200">${data.author}</p>
+                                <div class="flex text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            ${data.quote}
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                            <span class="text-gray-400 block mb-1">Carga de lectura</span>
+                            <span class="text-white font-medium">${data.read}</span>
+                        </div>
+                        <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                            <span class="text-gray-400 block mb-1">Modalidad examen</span>
+                            <span class="text-white font-medium">${data.exam}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('success-state').classList.remove('hidden');
+        }
+
+        function resetForm() {
+            document.getElementById('signup-form').reset();
+            document.getElementById('signup-form').classList.remove('hidden');
+            document.getElementById('success-state').classList.add('hidden');
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(index) {
+            const answer = document.getElementById(faq-answer-${index});
+            const icon = document.getElementById(faq-icon-${index});
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+    </script>
+</body>
+</html>
