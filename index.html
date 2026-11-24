@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -60,7 +60,7 @@
         }
         .bg-grid {
             background-size: 40px 40px;
-            background-image: 
+            background-image:
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
@@ -306,7 +306,7 @@
             </div>
         </section>
 
-        <!-- Interactive Demo / Experience Preview Section (With Illustrative Disclaimer & Zero Teacher Mentions) -->
+        <!-- Interactive Demo / Experience Preview Section -->
         <section id="demo-interactiva" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="glass-card p-6 sm:p-10 rounded-3xl border border-indigo-500/20 relative overflow-hidden">
                 <div class="grid lg:grid-cols-12 gap-8 items-center">
@@ -334,10 +334,10 @@
                             </button>
                         </div>
                     </div>
+
                     <!-- App Mockup UI Preview -->
                     <div class="lg:col-span-7 bg-gray-950 p-5 sm:p-6 rounded-2xl border border-gray-800 shadow-2xl w-full min-w-0">
-                        <div id="tab-content" class="w-full">
-                            <!-- Default Content: Comercialización I -->
+                        <div id="tab-content" class="w-full animate-fadeIn">
                             <div class="space-y-4">
                                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-gray-800 pb-3">
                                     <div>
@@ -406,7 +406,7 @@
                     </p>
                 </div>
 
-                <!-- Stage 2: Future Roadmap (Armador de Cursada moved here) -->
+                <!-- Stage 2: Future Roadmap -->
                 <div class="glass-card p-6 rounded-2xl border border-indigo-500/30 relative">
                     <div class="flex items-center justify-between gap-2 mb-4">
                         <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Etapa Futura</span>
@@ -472,535 +472,261 @@
                         <input type="email" id="reg-email" required oninput="clearEmailError('reg-email', 'reg-email-error')" placeholder="nombre.apellido@alumnos.uai.edu.ar" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
                         <p id="reg-email-error" class="hidden text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            <span>Usá tu correo institucional de la UAI (@alumnos.uai.edu.ar o @uai.edu.ar). No se aceptan correos personales.</span>
+                            <span>Ingresá un correo válido terminado en @alumnos.uai.edu.ar o @uai.edu.ar</span>
                         </p>
                     </div>
 
-                    <div>
-                        <label for="reg-password" class="block text-xs font-medium text-gray-300 mb-1.5">Creá una contraseña (mínimo 6 caracteres)</label>
-                        <input type="password" id="reg-password" required minlength="6" placeholder="••••••••" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
-                    </div>
-                    <div class="flex items-start gap-2.5 pt-1">
-                        <input type="checkbox" id="reg-terms" required class="mt-1 rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-indigo-500">
-                        <label for="reg-terms" class="text-xs text-gray-400 leading-relaxed">
-                            Acepto los <button type="button" onclick="openLegalModal('terms')" class="text-indigo-400 hover:text-indigo-300 underline">Términos y Condiciones</button> y la <button type="button" onclick="openLegalModal('privacy')" class="text-indigo-400 hover:text-indigo-300 underline">Política de Privacidad</button>, incluyendo el compromiso de no publicar menciones personales sobre docentes.
-                        </label>
-                    </div>
-
-                    <button type="submit" class="w-full btn-gradient text-white font-bold py-3.5 px-6 rounded-xl shadow-glow hover:scale-[1.01] transition-all flex items-center justify-center gap-2 mt-2">
-                        <span>Registrarme con correo UAI</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <button type="submit" class="w-full btn-gradient text-white font-semibold text-sm sm:text-base py-3.5 rounded-xl shadow-glow hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Solicitar acceso a Orienta</span>
                     </button>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-2 text-xs text-gray-400">
-                        <span>
-                            <i class="fa-solid fa-shield-check text-emerald-400 mr-1"></i> Verificación institucional UAI requerida.
-                        </span>
-                        <button type="button" onclick="openAuthModal('login')" class="text-indigo-400 hover:text-indigo-300 font-medium">
-                            ¿Ya tenés cuenta? Iniciá sesión
-                        </button>
+                    <div id="signup-success" class="hidden p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm text-center animate-fadeIn">
+                        ¡Listo! Registramos tu solicitud con tu correo institucional UAI.
                     </div>
                 </form>
-
-                <!-- Success Confirmation State -->
-                <div id="success-state" class="hidden text-center py-8 space-y-4">
-                    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/40">
-                        <i class="fa-solid fa-envelope-circle-check"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">¡Revisá tu correo institucional!</h3>
-                    <p id="success-email-text" class="text-gray-300 text-sm max-w-md mx-auto leading-relaxed">
-                        Te enviamos un enlace de verificación a tu casilla institucional de la UAI para activar tu perfil y comenzar a participar en la comunidad.
-                    </p>
-                    <button type="button" onclick="resetForm()" class="text-xs text-indigo-400 hover:text-indigo-300 underline pt-2">
-                        Registrar otro correo institucional
-                    </button>
-                </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <div class="text-center mb-14">
-                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Sin vueltas</h2>
-                <p class="text-3xl font-bold text-white">Preguntas frecuentes</p>
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Preguntas frecuentes</h2>
+                <p class="text-3xl font-bold text-white">Dudas comunes antes de empezar</p>
             </div>
 
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
-                    <button type="button" onclick="toggleFaq(1)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
-                        <span>¿Por qué piden correo institucional de la UAI para registrarse?</span>
-                        <i id="faq-icon-1" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div id="faq-answer-1" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
-                        Exigimos el dominio institucional (<code class="text-indigo-300">@alumnos.uai.edu.ar</code> o <code class="text-indigo-300">@uai.edu.ar</code>) para garantizar que quienes comparten experiencias y responden dudas sean realmente estudiantes de la universidad, evitando cuentas falsas o spam.
-                    </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <h3 class="text-white font-semibold text-sm sm:text-base mb-1.5">¿Necesito sí o sí correo de la UAI?</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Sí, pedimos direcciones <span class="text-gray-200">@alumnos.uai.edu.ar</span> o <span class="text-gray-200">@uai.edu.ar</span> para mantener la comunidad acotada a estudiantes reales de la facultad.
+                    </p>
                 </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
-                    <button type="button" onclick="toggleFaq(2)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
-                        <span>¿Qué tipo de información se comparte sobre las materias?</span>
-                        <i id="faq-icon-2" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div id="faq-answer-2" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
-                        Compartimos datos útiles sobre la cursada: carga horaria de lectura, dinámica de trabajos prácticos, modalidad de parciales y consejos de estudio. Por normas de convivencia de la comunidad, no se permiten menciones personales ni calificaciones sobre docentes.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
-                    <button type="button" onclick="toggleFaq(3)" class="w-full p-5 text-left font-medium text-white flex justify-between items-center gap-4 hover:bg-gray-800/40 transition-colors">
-                        <span>¿Es una plataforma oficial de la UAI?</span>
-                        <i id="faq-icon-3" class="fa-solid fa-plus text-indigo-400 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div id="faq-answer-3" class="hidden px-5 pb-5 text-gray-300 text-sm leading-relaxed border-t border-gray-800/50 pt-3">
-                        No, Orienta es un proyecto independiente creado por y para estudiantes. Nos comunicamos de igual a igual, sin rodeos burocráticos, y es 100% gratuito.
-                    </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <h3 class="text-white font-semibold text-sm sm:text-base mb-1.5">¿Tiene algún costo para los alumnos?</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        No, es gratuita y está pensada como un espacio de intercambio entre compañeros.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Interactive Auth Modal (Iniciar sesión / Registrarse con correo UAI) -->
-    <div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="glass-card bg-gray-900/95 border border-gray-700/80 w-full max-w-md rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[92vh] overflow-y-auto">
-            <!-- Close Button -->
-            <button type="button" onclick="closeAuthModal()" aria-label="Cerrar ventana" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <!-- Modal Header -->
-            <div class="flex items-center gap-2.5 mb-6">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-black text-lg shadow-glow">
-                    O
-                </div>
-                <div>
-                    <h3 id="modal-title" class="text-xl font-bold text-white leading-tight">Iniciá sesión</h3>
-                    <p class="text-xs text-gray-400">Acceso exclusivo con correo UAI</p>
-                </div>
-            </div>
-
-            <!-- Mode Switch Tabs -->
-            <div class="grid grid-cols-2 gap-1.5 p-1 bg-gray-950/90 rounded-xl border border-gray-800 mb-6">
-                <button type="button" id="modal-tab-login" onclick="switchAuthMode('login')" class="py-2 text-xs sm:text-sm font-semibold rounded-lg bg-indigo-600 text-white transition-all">
-                    Iniciar sesión
-                </button>
-                <button type="button" id="modal-tab-register" onclick="switchAuthMode('register')" class="py-2 text-xs sm:text-sm font-semibold rounded-lg text-gray-400 hover:text-white transition-all">
-                    Registrarse
-                </button>
-            </div>
-
-            <!-- Modal Form -->
-            <form id="modal-auth-form" onsubmit="handleModalAuthSubmit(event)" class="space-y-4" novalidate>
-                <div id="modal-name-group" class="hidden">
-                    <label for="modal-name" class="block text-xs font-medium text-gray-300 mb-1.5">Nombre y apellido</label>
-                    <input type="text" id="modal-name" placeholder="Ej: Valentina López" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
-                </div>
-
-                <div>
-                    <label for="modal-email" class="block text-xs font-medium text-gray-300 mb-1.5">Correo institucional UAI</label>
-                    <input type="email" id="modal-email" required oninput="clearEmailError('modal-email', 'modal-email-error')" placeholder="tuusuario@alumnos.uai.edu.ar" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
-                    <p id="modal-email-error" class="hidden text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
-                        <i class="fa-solid fa-circle-exclamation shrink-0"></i>
-                        <span>Ingresá un correo institucional válido (@alumnos.uai.edu.ar o @uai.edu.ar). No se admiten cuentas personales.</span>
-                    </p>
-                </div>
-
-                <div>
-                    <label for="modal-password" class="block text-xs font-medium text-gray-300 mb-1.5">Contraseña</label>
-                    <input type="password" id="modal-password" required minlength="6" placeholder="••••••••" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-500">
-                </div>
-
-                <div id="modal-year-group" class="hidden">
-                    <label for="modal-year" class="block text-xs font-medium text-gray-300 mb-1.5">Año que cursás</label>
-                    <select id="modal-year" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors">
-                        <option value="1">1.º Año (Ingresante)</option>
-                        <option value="2">2.º Año</option>
-                        <option value="otro">Avanzado (3.º o 4.º año)</option>
-                    </select>
-                </div>
-
-                <button type="submit" id="modal-submit-btn" class="w-full btn-gradient text-white font-bold py-3.5 px-6 rounded-xl shadow-glow hover:scale-[1.01] transition-all flex items-center justify-center gap-2 mt-2">
-                    <span>Entrar a Orienta</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </button>
-            </form>
-
-            <!-- Modal Feedback State -->
-            <div id="modal-success-state" class="hidden text-center py-6 space-y-4">
-                <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl border border-emerald-500/40">
-                    <i class="fa-solid fa-check"></i>
-                </div>
-                <h4 id="modal-success-title" class="text-xl font-bold text-white">¡Ya estás adentro!</h4>
-                <p id="modal-success-desc" class="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                    Correo institucional verificado correctamente.
-                </p>
-                <button type="button" onclick="closeAuthModal()" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2.5 px-4 rounded-xl text-xs transition-colors">
-                    Continuar explorando
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Legal Modal (Política de Privacidad / Términos y Condiciones) -->
-    <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="glass-card bg-gray-900/95 border border-gray-700/80 w-full max-w-2xl rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[88vh] flex flex-col">
-            <button type="button" onclick="closeLegalModal()" aria-label="Cerrar documento legal" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-2.5 mb-4 pr-10">
-                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-sm shrink-0">
-                    <i class="fa-solid fa-file-contract"></i>
-                </div>
-                <div>
-                    <h3 id="legal-modal-title" class="text-lg sm:text-xl font-bold text-white">Política de Privacidad</h3>
-                    <span class="text-xs text-gray-400">Orienta • Comunidad Estudiantil Independiente UAI</span>
-                </div>
-            </div>
-
-            <div id="legal-modal-body" class="overflow-y-auto pr-2 space-y-4 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-b border-gray-800 py-4 my-2">
-                <!-- Dynamic legal content injected here -->
-            </div>
-
-            <div class="pt-2 flex justify-end">
-                <button type="button" onclick="closeLegalModal()" class="btn-gradient text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-xl">
-                    Entendido
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="border-t border-gray-800/80 bg-gray-950 py-12 px-4 sm:px-6 lg:px-8 mt-12">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-black text-sm">
-                    O
-                </div>
-                <span class="text-white font-bold tracking-tight">Orienta</span>
-                <span class="text-xs text-gray-500">| Proyecto estudiantil independiente • Comercialización UAI</span>
+    <footer class="border-t border-gray-800/80 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center sm:text-left">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <div>
+                <span class="font-semibold text-white">Orienta</span> • Comunidad estudiantil de Comercialización (UAI).
             </div>
-
-            <p class="text-xs text-gray-400">
-                &copy; 2026 Orienta. Todos los derechos reservados.
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center gap-6 text-gray-400 text-xs">
-                <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white transition-colors">Política de Privacidad</button>
-                <button type="button" onclick="openLegalModal('terms')" class="hover:text-white transition-colors">Términos y Condiciones</button>
-                <a href="#registro" class="hover:text-indigo-400 transition-colors">Registrarse</a>
+            <div>
+                Proyecto hecho por y para estudiantes.
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Logic Scripts -->
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" onclick="closeAuthModalOnBackdrop(event)">
+        <div class="glass-card w-full max-w-md p-6 rounded-2xl border border-indigo-500/30 relative animate-fadeIn">
+            <button type="button" onclick="closeAuthModal()" aria-label="Cerrar ventana" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1.5">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 id="modal-title" class="text-xl font-bold text-white mb-2">Iniciar sesión</h3>
+            <p id="modal-subtitle" class="text-xs text-gray-400 mb-5">Accedé con tu correo institucional de la UAI.</p>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4" novalidate>
+                <div>
+                    <label for="modal-email" class="block text-xs font-medium text-gray-300 mb-1.5">Correo institucional UAI</label>
+                    <input type="email" id="modal-email" required oninput="clearEmailError('modal-email', 'modal-email-error')" placeholder="nombre.apellido@alumnos.uai.edu.ar" class="w-full bg-gray-950/90 border border-gray-700/80 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                    <p id="modal-email-error" class="hidden text-red-400 text-xs mt-1.5">Ingresá un correo @alumnos.uai.edu.ar o @uai.edu.ar</p>
+                </div>
+                <button type="submit" id="modal-submit-btn" class="w-full btn-gradient text-white font-semibold text-sm py-3 rounded-xl">
+                    Continuar
+                </button>
+                <p id="modal-feedback" class="hidden text-xs text-emerald-400 text-center"></p>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Strict UAI Institutional Email Validation
-        function isValidUaiEmail(email) {
-            if (!email) return false;
-            const normalized = email.trim().toLowerCase();
-            const uaiRegex = /^[a-z0-9._%+-]+@(alumnos\.)?uai\.edu\.ar$/;
-            return uaiRegex.test(normalized);
-        }
-
-        function showEmailError(inputId, errorId, message) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.classList.remove('border-gray-700/80', 'focus:border-indigo-500');
-            input.classList.add('border-red-500', 'focus:border-red-500');
-            if (message) {
-                error.querySelector('span').textContent = message;
-            }
-            error.classList.remove('hidden');
-            input.focus();
-        }
-
-        function clearEmailError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.classList.remove('border-red-500', 'focus:border-red-500');
-            input.classList.add('border-gray-700/80', 'focus:border-indigo-500');
-            error.classList.add('hidden');
-        }
-
-        // Tab Switcher for Illustrative Subject Experiences (Zero Teacher Mentions)
-        const tabData = {
+        const experiencesData = {
             comercializacion: {
-                title: "Comercialización I",
-                badge: "Ejemplo ilustrativo",
-                author: "Estudiante de 2.º año • Ejemplo ilustrativo",
-                status: "Cursada aprobada",
-                quote: `"La clave en esta materia es llevar al día el trabajo práctico integrador en grupo. Los parciales teóricos se hacen mucho más llevaderos si repasás las guías de lectura semana a semana y aprovechás las clases de repaso previas al examen."`,
-                read: "Moderada (3-4 hs/semana)",
-                exam: "Parciales + Caso Práctico Grupal"
+                title: 'Comercialización I',
+                subtitle: '1.º Año | Lic. en Comercialización UAI',
+                badge: 'Ejemplo ilustrativo',
+                initial: 'S',
+                author: 'Estudiante de 2.º año • Ejemplo ilustrativo',
+                status: 'Cursada aprobada',
+                quote: '"La clave en esta materia es llevar al día el trabajo práctico integrador en grupo. Los parciales teóricos se hacen mucho más llevaderos si repasás las guías de lectura semana a semana y aprovechás las clases de repaso previas al examen."',
+                metric1Label: 'Carga de lectura sugerida',
+                metric1Value: 'Moderada (3-4 hs/semana)',
+                metric2Label: 'Dinámica habitual',
+                metric2Value: 'Parciales + Caso Práctico Grupal'
             },
             administracion: {
-                title: "Administración General",
-                badge: "Ejemplo ilustrativo",
-                author: "Estudiante de 2.º año • Ejemplo ilustrativo",
-                status: "Cursada aprobada",
-                quote: `"Conviene leer los casos de estudio antes de cada clase para participar y fijar conceptos. En las evaluaciones se prioriza entender cómo aplicar los procesos administrativos en organizaciones reales más que repetir definiciones de memoria."`,
-                read: "Intensa (4-5 hs/semana)",
-                exam: "Opción Múltiple + Resolución de Casos"
+                title: 'Administración General',
+                subtitle: '1.º Año | Lic. en Comercialización UAI',
+                badge: 'Ejemplo ilustrativo',
+                initial: 'M',
+                author: 'Estudiante de 2.º año • Ejemplo ilustrativo',
+                status: 'Cursada aprobada',
+                quote: '"Conviene ir armando resúmenes de conceptos clave desde las primeras clases para no acumular teoría cerca de los parciales. Resolver guías y casos en grupo ayuda a fijar los procesos organizacionales."',
+                metric1Label: 'Carga de lectura sugerida',
+                metric1Value: 'Media (4 hs/semana)',
+                metric2Label: 'Dinámica habitual',
+                metric2Value: 'Exámenes parciales + Análisis de casos'
             },
             investigacion: {
-                title: "Investigación de Mercado",
-                badge: "Ejemplo ilustrativo",
-                author: "Estudiante de 3.º año • Ejemplo ilustrativo",
-                status: "Cursada aprobada",
-                quote: `"Armen el equipo de trabajo desde las primeras semanas porque el proyecto de investigación lleva varias etapas de relevamiento y análisis de datos. Ir mostrando avances clase a clase evita llegar con todo junto al cierre."`,
-                read: "Moderada - Enfoque Práctico",
-                exam: "Entrega de Proyecto + Evaluación Final"
+                title: 'Investigación de Mercado',
+                subtitle: '2.º Año | Lic. en Comercialización UAI',
+                badge: 'Ejemplo ilustrativo',
+                initial: 'L',
+                author: 'Estudiante avanzado • Ejemplo ilustrativo',
+                status: 'Cursada aprobada',
+                quote: '"Muy útil para conectar la teoría con datos reales: formular bien las preguntas de una encuesta y analizar resultados con criterio marca la diferencia en los trabajos prácticos."',
+                metric1Label: 'Carga de lectura sugerida',
+                metric1Value: 'Moderada + trabajo aplicado',
+                metric2Label: 'Dinámica habitual',
+                metric2Value: 'Trabajo de campo + Defensa práctica'
             }
         };
 
         function switchTab(key) {
-            ['comercializacion', 'administracion', 'investigacion'].forEach(k => {
+            const item = experiencesData[key];
+            if (!item) return;
+
+            ['comercializacion', 'administracion', 'investigacion'].forEach((k) => {
                 const btn = document.getElementById(`btn-${k}`);
+                if (!btn) return;
                 if (k === key) {
-                    btn.className = "w-full text-left px-4 py-3 rounded-xl bg-indigo-600/30 border border-indigo-500/50 text-white font-medium text-sm flex items-center justify-between transition-all";
-                    btn.querySelector('i').className = "fa-solid fa-chevron-right text-xs text-indigo-300";
+                    btn.className = 'w-full text-left px-4 py-3 rounded-xl bg-indigo-600/30 border border-indigo-500/50 text-white font-medium text-sm flex items-center justify-between transition-all';
                 } else {
-                    btn.className = "w-full text-left px-4 py-3 rounded-xl bg-gray-800/40 border border-gray-700/60 text-gray-300 hover:bg-gray-800 font-medium text-sm flex items-center justify-between transition-all";
-                    btn.querySelector('i').className = "fa-solid fa-chevron-right text-xs text-gray-500";
+                    btn.className = 'w-full text-left px-4 py-3 rounded-xl bg-gray-800/40 border border-gray-700/60 text-gray-300 hover:bg-gray-800 font-medium text-sm flex items-center justify-between transition-all';
                 }
             });
 
-            const data = tabData[key];
-            const contentDiv = document.getElementById('tab-content');
-            contentDiv.innerHTML = `
+            const container = document.getElementById('tab-content');
+            if (!container) return;
+            container.innerHTML = `
                 <div class="space-y-4 animate-fadeIn">
                     <div class="flex flex-wrap items-center justify-between gap-2 border-b border-gray-800 pb-3">
                         <div>
-                            <h4 class="text-white font-bold text-lg">${data.title}</h4>
-                            <span class="text-xs text-gray-400">Lic. en Comercialización UAI</span>
+                            <h4 class="text-white font-bold text-lg">${item.title}</h4>
+                            <span class="text-xs text-gray-400">${item.subtitle}</span>
                         </div>
                         <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 text-[11px] font-semibold border border-amber-500/25">
-                            ${data.badge}
+                            ${item.badge}
                         </span>
                     </div>
                     <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800">
-                        <div class="flex items-center gap-3 mb-2.5">
-                            <div class="w-8 h-8 rounded-full bg-violet-600/30 text-violet-300 flex items-center justify-center font-bold text-xs shrink-0">
-                                E
-                            </div>
-                            <div>
-                                <p class="text-xs font-semibold text-gray-200">${data.author}</p>
-                                <span class="text-[11px] text-emerald-400">${data.status}</span>
+                        <div class="flex items-center justify-between gap-2 mb-2.5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-violet-600/30 text-violet-300 flex items-center justify-center font-bold text-xs shrink-0">
+                                    ${item.initial}
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-gray-200">${item.author}</p>
+                                    <span class="text-[11px] text-emerald-400">${item.status}</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-300 text-xs leading-relaxed">
-                            ${data.quote}
-                        </p>
+                        <p class="text-gray-300 text-xs leading-relaxed">${item.quote}</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                         <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
-                            <span class="text-gray-400 block mb-1">Carga de lectura sugerida</span>
-                            <span class="text-white font-medium">${data.read}</span>
+                            <span class="text-gray-400 block mb-1">${item.metric1Label}</span>
+                            <span class="text-white font-medium">${item.metric1Value}</span>
                         </div>
                         <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-800">
-                            <span class="text-gray-400 block mb-1">Dinámica habitual</span>
-                            <span class="text-white font-medium">${data.exam}</span>
+                            <span class="text-gray-400 block mb-1">${item.metric2Label}</span>
+                            <span class="text-white font-medium">${item.metric2Value}</span>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // Direct Registration Form Submit Handler
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('signup-form');
+        function isValidUaiEmail(email) {
+            const clean = (email || '').trim().toLowerCase();
+            return /^[^\s@]+@(alumnos\.uai\.edu\.ar|uai\.edu\.ar)$/.test(clean);
+        }
+
+        function clearEmailError(inputId, errorId) {
+            const err = document.getElementById(errorId);
+            if (err) err.classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
             const emailInput = document.getElementById('reg-email');
-            const emailVal = emailInput.value.trim();
+            const errorEl = document.getElementById('reg-email-error');
+            const successEl = document.getElementById('signup-success');
 
-            if (!form.checkValidity() && isValidUaiEmail(emailVal)) {
-                form.reportValidity();
+            if (!isValidUaiEmail(emailInput.value)) {
+                if (errorEl) errorEl.classList.remove('hidden');
+                if (successEl) successEl.classList.add('hidden');
+                emailInput.focus();
                 return;
             }
 
-            if (!isValidUaiEmail(emailVal)) {
-                showEmailError(
-                    'reg-email',
-                    'reg-email-error',
-                    'Solo se admite correo institucional de la UAI (@alumnos.uai.edu.ar o @uai.edu.ar). No uses Gmail ni correos personales.'
-                );
-                return;
-            }
-
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            document.getElementById('success-email-text').innerHTML = `
-                Enviamos un enlace de verificación institucional a <strong class="text-indigo-300">${emailVal}</strong>. Confirmalo desde tu casilla UAI para activar tu cuenta.
-            `;
-            form.classList.add('hidden');
-            document.getElementById('success-state').classList.remove('hidden');
+            if (errorEl) errorEl.classList.add('hidden');
+            if (successEl) successEl.classList.remove('hidden');
         }
 
-        function resetForm() {
-            const form = document.getElementById('signup-form');
-            form.reset();
-            clearEmailError('reg-email', 'reg-email-error');
-            form.classList.remove('hidden');
-            document.getElementById('success-state').classList.add('hidden');
-        }
-
-        // FAQ Accordion Toggle
-        function toggleFaq(index) {
-            const answer = document.getElementById(`faq-answer-${index}`);
-            const icon = document.getElementById(`faq-icon-${index}`);
-            
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-            } else {
-                answer.classList.add('hidden');
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-            }
-        }
-
-        // Auth Modal Logic
         let currentAuthMode = 'login';
 
-        function openAuthModal(mode = 'login') {
+        function openAuthModal(mode) {
+            currentAuthMode = mode;
             const modal = document.getElementById('auth-modal');
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const feedback = document.getElementById('modal-feedback');
+            if (feedback) feedback.classList.add('hidden');
+            clearEmailError('modal-email', 'modal-email-error');
+
+            if (mode === 'register') {
+                title.textContent = 'Crear cuenta en Orienta';
+                subtitle.textContent = 'Registrate con tu correo @alumnos.uai.edu.ar o @uai.edu.ar.';
+            } else {
+                title.textContent = 'Iniciar sesión';
+                subtitle.textContent = 'Ingresá con tu correo institucional de la UAI.';
+            }
+
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            switchAuthMode(mode);
         }
 
         function closeAuthModal() {
             const modal = document.getElementById('auth-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            document.getElementById('modal-auth-form').reset();
-            clearEmailError('modal-email', 'modal-email-error');
-            document.getElementById('modal-auth-form').classList.remove('hidden');
-            document.getElementById('modal-success-state').classList.add('hidden');
         }
 
-        function switchAuthMode(mode) {
-            currentAuthMode = mode;
-            const tabLogin = document.getElementById('modal-tab-login');
-            const tabRegister = document.getElementById('modal-tab-register');
-            const nameGroup = document.getElementById('modal-name-group');
-            const nameInput = document.getElementById('modal-name');
-            const yearGroup = document.getElementById('modal-year-group');
-            const modalTitle = document.getElementById('modal-title');
-            const submitBtn = document.getElementById('modal-submit-btn');
-
-            clearEmailError('modal-email', 'modal-email-error');
-            document.getElementById('modal-auth-form').classList.remove('hidden');
-            document.getElementById('modal-success-state').classList.add('hidden');
-
-            if (mode === 'register') {
-                tabRegister.className = "py-2 text-xs sm:text-sm font-semibold rounded-lg bg-indigo-600 text-white transition-all";
-                tabLogin.className = "py-2 text-xs sm:text-sm font-semibold rounded-lg text-gray-400 hover:text-white transition-all";
-                nameGroup.classList.remove('hidden');
-                nameInput.required = true;
-                yearGroup.classList.remove('hidden');
-                modalTitle.textContent = "Creá tu cuenta UAI";
-                submitBtn.innerHTML = '<span>Registrarme con correo UAI</span><i class="fa-solid fa-arrow-right text-xs"></i>';
-            } else {
-                tabLogin.className = "py-2 text-xs sm:text-sm font-semibold rounded-lg bg-indigo-600 text-white transition-all";
-                tabRegister.className = "py-2 text-xs sm:text-sm font-semibold rounded-lg text-gray-400 hover:text-white transition-all";
-                nameGroup.classList.add('hidden');
-                nameInput.required = false;
-                yearGroup.classList.add('hidden');
-                modalTitle.textContent = "Iniciá sesión";
-                submitBtn.innerHTML = '<span>Entrar a Orienta</span><i class="fa-solid fa-arrow-right text-xs"></i>';
+        function closeAuthModalOnBackdrop(event) {
+            if (event.target.id === 'auth-modal') {
+                closeAuthModal();
             }
         }
 
-        function handleModalAuthSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('modal-auth-form');
-            const emailVal = document.getElementById('modal-email').value.trim();
+        function handleModalSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('modal-email');
+            const errorEl = document.getElementById('modal-email-error');
+            const feedback = document.getElementById('modal-feedback');
 
-            if (!isValidUaiEmail(emailVal)) {
-                showEmailError(
-                    'modal-email',
-                    'modal-email-error',
-                    'Ingresá un correo institucional válido (@alumnos.uai.edu.ar o @uai.edu.ar). No se admiten correos personales.'
-                );
+            if (!isValidUaiEmail(emailInput.value)) {
+                if (errorEl) errorEl.classList.remove('hidden');
+                if (feedback) feedback.classList.add('hidden');
                 return;
             }
 
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
+            if (errorEl) errorEl.classList.add('hidden');
+            if (feedback) {
+                feedback.textContent = currentAuthMode === 'register'
+                    ? '¡Solicitud de registro validada para tu correo UAI!'
+                    : '¡Acceso validado con tu correo institucional UAI!';
+                feedback.classList.remove('hidden');
             }
-
-            const successTitle = document.getElementById('modal-success-title');
-            const successDesc = document.getElementById('modal-success-desc');
-
-            if (currentAuthMode === 'register') {
-                const userName = document.getElementById('modal-name').value.trim() || 'Compañero/a';
-                successTitle.textContent = `¡Verificá tu correo, ${userName}!`;
-                successDesc.innerHTML = `Enviamos un código de validación institucional a <strong class="text-indigo-300">${emailVal}</strong> para activar tu acceso a Orienta.`;
-            } else {
-                successTitle.textContent = "¡Qué bueno verte de nuevo!";
-                successDesc.innerHTML = `Acceso validado con <strong class="text-indigo-300">${emailVal}</strong>.`;
-            }
-
-            form.classList.add('hidden');
-            document.getElementById('modal-success-state').classList.remove('hidden');
         }
-
-        // Legal Documents Modal Logic (Specific Privacy Policy & Terms of Service)
-        const legalContent = {
-            privacy: {
-                title: "Política de Privacidad de Orienta",
-                html: `
-                    <p><strong class="text-white">1. Responsable y Naturaleza del Proyecto:</strong> Orienta es una iniciativa estudiantil independiente diseñada para acompañar a alumnos de la Universidad Abierta Interamericana (UAI), comenzando por la Licenciatura en Comercialización. No posee vínculo institucional oficial ni comercial con la universidad.</p>
-                    <p><strong class="text-white">2. Verificación mediante Correo Institucional:</strong> Para garantizar que la comunidad esté integrada exclusivamente por estudiantes reales, solicitamos y validamos direcciones de correo pertenecientes a los dominios institucionales <code class="text-indigo-300">@alumnos.uai.edu.ar</code> o <code class="text-indigo-300">@uai.edu.ar</code>. No se admiten correos personales.</p>
-                    <p><strong class="text-white">3. Uso de los Datos Personales:</strong> Los datos recabados (nombre, año de cursada y correo institucional) se utilizan únicamente para autenticar tu cuenta, personalizar la experiencia académica por año y evitar perfiles apócrifos. Nunca vendemos, cedemos ni compartimos tu información con terceros.</p>
-                    <p><strong class="text-white">4. Derechos del Usuario:</strong> Podés solicitar la modificación o eliminación definitiva de tu cuenta y tus aportes en cualquier momento desde la configuración de tu perfil.</p>
-                `
-            },
-            terms: {
-                title: "Términos y Condiciones de Uso",
-                html: `
-                    <p><strong class="text-white">1. Aceptación y Alcance:</strong> Al registrarte en Orienta aceptás estas normas de convivencia pensadas para sostener un espacio solidario, útil y respetuoso entre pares universitarios.</p>
-                    <p><strong class="text-white">2. Regla Fundamental — Prohibición de Menciones Personales a Docentes:</strong> Las experiencias compartidas deben enfocarse exclusivamente en el contenido de las materias, carga de lectura, modalidad de trabajos prácticos y dinámicas generales de evaluación. Queda estrictamente prohibido publicar nombres propios, calificaciones personales, agravios o referencias identificables sobre docentes o autoridades.</p>
-                    <p><strong class="text-white">3. Veracidad y Transparencia:</strong> Las experiencias publicadas reflejan opiniones subjetivas de cursadas anteriores. Los ejemplos mostrados en la página de inicio tienen carácter meramente ilustrativo de la interfaz.</p>
-                    <p><strong class="text-white">4. Moderación:</strong> El equipo de Orienta se reserva la facultad de editar o dar de baja publicaciones que incumplan las pautas de respeto o incluyan menciones personales a terceros.</p>
-                `
-            }
-        };
-
-        function openLegalModal(type) {
-            const modal = document.getElementById('legal-modal');
-            const titleEl = document.getElementById('legal-modal-title');
-            const bodyEl = document.getElementById('legal-modal-body');
-            const doc = legalContent[type] || legalContent.privacy;
-
-            titleEl.textContent = doc.title;
-            bodyEl.innerHTML = doc.html;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeLegalModal() {
-            const modal = document.getElementById('legal-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        // Close modals when clicking backdrop
-        document.getElementById('auth-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeAuthModal();
-        });
-        document.getElementById('legal-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeLegalModal();
-        });
     </script>
 </body>
 </html>
